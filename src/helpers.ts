@@ -1,4 +1,5 @@
 import { bangs } from './bangs';
+import LocalCache from './cache';
 
 /**
  * Function which returns the bangs and the query from the query string
@@ -45,23 +46,41 @@ export function createUrl(url: string, query: string): string {
  * @returns string[] - an array of redirect urls
  */
 export function getRedirectUrls(q: string): string[] {
-	const { bangsInQuery, query } = getBangsAndQuery(q);
+	let { bangsInQuery, query } = getBangsAndQuery(q);
 	const redirectUrls: string[] = [];
-	const defaultEngine =
-		localStorage.getItem('default_engine') || 'https://www.google.com/search?q={{{s}}}';
-	const defaultSearchUrl = createUrl(defaultEngine, query);
-	if (bangsInQuery.length === 0) {
-		redirectUrls.push(defaultSearchUrl);
-	} else {
-		for (const queryBang of bangsInQuery) {
-			// search the corresponding bang in map
-			const bang = bangs[queryBang];
-			if (!bang) continue;
-			const searchUrl = createUrl(bang.u, query);
+	const defaultEngine = localStorage.getItem('default_engine') || 'g';
+
+	if (bangsInQuery.length === 0) bangsInQuery.push(defaultEngine);
+
+	//! search in cache
+	const searchedBangs = new Set<string>();
+	const localCache = new LocalCache();
+	for (const queryBang of bangsInQuery) {
+		const bangUrl = localCache.get(queryBang);
+		if (bangUrl) {
+			searchedBangs.add(queryBang);
+			const searchUrl = createUrl(bangUrl, query);
 			redirectUrls.push(searchUrl);
 		}
 	}
-	if (redirectUrls.length === 0) redirectUrls.push(defaultSearchUrl);
+
+	//! search in bangs
+	for (const queryBang of bangsInQuery) {
+		if (searchedBangs.has(queryBang)) continue;
+		// search the corresponding bang in map
+		const bang = bangs[queryBang];
+		if (!bang) continue;
+		localCache.set(queryBang, bang.u);
+		const searchUrl = createUrl(bang.u, query);
+		redirectUrls.push(searchUrl);
+	}
+
+	// if there is no redirectUrls, add the default searchUrl
+	if (redirectUrls.length === 0) {
+		const defaultSearchUrl = createUrl(bangs[defaultEngine].u, query);
+		redirectUrls.push(defaultSearchUrl);
+	}
+
 	return redirectUrls;
 }
 
