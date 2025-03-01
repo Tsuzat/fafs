@@ -17027,6 +17027,15 @@ export const bangs: {
 		t: 'chat',
 		u: 'https://www.duckduckgo.com/?q={{{s}}}&ia=chat&bang=true '
 	},
+	chatgpt: {
+		c: 'AI',
+		d: 'chat.openai.com',
+		r: 0,
+		s: 'ChatGPT',
+		sc: 'AI',
+		t: 'chatgpt',
+		u: 'https://chatgpt.com/?q={{{s}}}'
+	},
 	chatters: {
 		c: 'Shopping',
 		d: 'chatters.ca',
@@ -18115,6 +18124,15 @@ export const bangs: {
 		sc: 'Online (marketplace)',
 		t: 'cl',
 		u: 'https://www.craigslist.org/search/sss?query={{{s}}}'
+	},
+	claude: {
+		c: 'AI',
+		d: 'claude.ai',
+		r: 0,
+		s: 'Claude',
+		sc: 'AI',
+		t: 'claude',
+		u: 'https://claude.ai/new?q={{{s}}}'
 	},
 	cld: {
 		c: 'Tech',
@@ -80674,6 +80692,15 @@ export const bangs: {
 		sc: 'Food',
 		t: 'pepperplate',
 		u: 'http://www.pepperplate.com/search/?text={{{s}}}'
+	},
+	perplexity: {
+		c: 'AI',
+		d: 'www.perplexity.ai',
+		r: 0,
+		s: 'Perplexity',
+		sc: 'AI',
+		t: 'perplexity',
+		u: 'https://www.perplexity.ai/search?q={{{s}}}'
 	},
 	pep: {
 		c: 'Tech',
