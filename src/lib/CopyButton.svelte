@@ -16,7 +16,7 @@
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 24 24"
 			fill="none"
-			stroke-width="1"
+			stroke-width="1.5"
 			stroke-linecap="round"
 			stroke-linejoin="round"
 			><rect width="8" height="4" x="8" y="2" rx="1" ry="1" /><path
@@ -29,7 +29,7 @@
 			viewBox="0 0 24 24"
 			fill="none"
 			stroke="#00c950"
-			stroke-width="1"
+			stroke-width="1.5"
 			stroke-linecap="round"
 			stroke-linejoin="round"
 			class="success"
