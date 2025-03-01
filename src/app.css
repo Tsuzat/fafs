@@ -40,6 +40,7 @@ body {
 
 /* Layout styles */
 main {
+	padding: 1rem;
 	margin: auto;
 	display: flex;
 	height: 100vh;
@@ -99,7 +100,8 @@ strong {
 /* Form elements */
 .input-container {
 	display: flex;
-	width: 25rem;
+	max-width: 25rem;
+	width: 100%;
 	align-items: center;
 	gap: 1rem;
 }
