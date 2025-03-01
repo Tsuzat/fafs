@@ -1,160 +1,160 @@
 /* app.css (previously defined styles remain) */
 
 :root {
-  --font-body: Inter, system-ui, sans-serif;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+	--font-body: Inter, system-ui, sans-serif;
+	--font-mono:
+		ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono',
+		'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-  /* Color variables */
-  --color-text: #000000;
-  --color-bg: #f3f4f6; /* gray-100 equivalent */
-  --color-border: rgba(0, 0, 0, 0.2);
-  --color-border-hover: rgba(0, 0, 0, 0.5);
-  --color-success: #00c950; /* Success green for the copy check mark */
+	/* Color variables */
+	--color-text: #000000;
+	--color-bg: #f3f4f6; /* gray-100 equivalent */
+	--color-border: rgba(0, 0, 0, 0.2);
+	--color-border-hover: rgba(0, 0, 0, 0.5);
+	--color-success: #00c950; /* Success green for the copy check mark */
 }
 
 /* Dark mode variables */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --color-text: #ffffff;
-    --color-bg: rgba(0, 0, 0, 0.95); /* black/95 equivalent */
-    --color-border: rgba(255, 255, 255, 0.2);
-    --color-border-hover: rgba(255, 255, 255, 0.5);
-  }
+	:root {
+		--color-text: #ffffff;
+		--color-bg: rgba(0, 0, 0, 0.95); /* black/95 equivalent */
+		--color-border: rgba(255, 255, 255, 0.2);
+		--color-border-hover: rgba(255, 255, 255, 0.5);
+	}
 }
 
 /* Reset and base styles */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-body);
-  line-height: 1.5;
+	background-color: var(--color-bg);
+	color: var(--color-text);
+	font-family: var(--font-body);
+	line-height: 1.5;
 }
 
 /* Layout styles */
 main {
-  margin: auto;
-  display: flex;
-  height: 100vh;
-  width: 100%;
-  max-width: 48rem; /* max-w-3xl equivalent */
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+	margin: auto;
+	display: flex;
+	height: 100vh;
+	width: 100%;
+	max-width: 48rem; /* max-w-3xl equivalent */
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 main > * {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
 }
 
 /* Typography styles */
 h1 {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 1.875rem; /* text-3xl equivalent */
-  font-weight: 700; /* font-bold equivalent */
+	display: inline-flex;
+	align-items: center;
+	gap: 1rem;
+	font-size: 1.875rem; /* text-3xl equivalent */
+	font-weight: 700; /* font-bold equivalent */
 }
 
 h1 img {
-  width: 2.5rem; /* size-10 equivalent */
-  height: 2.5rem;
+	width: 2.5rem; /* size-10 equivalent */
+	height: 2.5rem;
 }
 
 .text-s {
-  font-size: 0.875rem;
-  font-weight: 500; /* font-medium equivalent */
-  opacity: 0.8;
+	font-size: 0.875rem;
+	font-weight: 500; /* font-medium equivalent */
+	opacity: 0.8;
 }
 
 /* Link styles */
 a {
-  color: rgba(var(--color-text), 0.8);
-  text-decoration: underline;
+	color: rgba(var(--color-text), 0.8);
+	text-decoration: underline;
 }
 
 /* Strong element styles */
 strong {
-  animation: pulse 2s infinite;
+	animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.7;
+	}
 }
 
 /* Form elements */
 .input-container {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  gap: 1rem;
+	display: flex;
+	width: 100%;
+	align-items: center;
+	gap: 1rem;
 }
 
-input[type="text"] {
-  width: 100%;
-  cursor: pointer;
-  border-radius: 0.25rem;
-  border: 1px solid var(--color-border);
-  padding: 0.5rem;
-  transition: border-color 0.3s;
-  background-color: transparent;
-  color: var(--color-text);
+input[type='text'] {
+	width: 100%;
+	cursor: pointer;
+	border-radius: 0.25rem;
+	border: 1px solid var(--color-border);
+	padding: 0.5rem;
+	transition: border-color 0.3s;
+	background-color: transparent;
+	color: var(--color-text);
 }
 
-input[type="text"]:hover {
-  border-color: var(--color-border-hover);
+input[type='text']:hover {
+	border-color: var(--color-border-hover);
 }
 
 /* Text alignment */
 .text-center {
-  text-align: center;
+	text-align: center;
 }
 
 /* Component containers */
 .flex-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .flex-container > * {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
 }
 
 /* Copy button styles */
 .copy-button {
-  width: 1.5rem;
-  height: 1.5rem;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	width: 1.5rem;
+	height: 1.5rem;
+	cursor: pointer;
+	background: none;
+	border: none;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .copy-button svg {
-  width: 24px;
-  height: 24px;
+	width: 24px;
+	height: 24px;
 }
 
 .copy-button svg:not(.success) {
-  stroke: var(--color-text);
+	stroke: var(--color-text);
 }
