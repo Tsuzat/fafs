@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
-import { getBangsAndQuery } from '../src/helpers';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { getBangsAndQuery, getRedirectUrls } from '../src/helpers';
 
 describe('getBangsAndQuery', () => {
 	it('should return empty bangs array and the query when no bangs are present', () => {
@@ -60,5 +60,89 @@ describe('getBangsAndQuery', () => {
 		const result = getBangsAndQuery('!gsearch for something');
 		expect(result.bangsInQuery).toEqual(['gsearch']);
 		expect(result.query).toBe('for something');
+	});
+});
+
+// Mock localStorage
+vi.stubGlobal('localStorage', {
+	getItem: vi.fn(),
+	setItem: vi.fn()
+});
+
+describe('getRedirectUrls', () => {
+	beforeEach(() => {
+		localStorage.getItem.mockReturnValue('https://www.google.com/search?q={{{s}}}');
+	});
+
+	afterEach(() => {
+		vi.clearAllMocks();
+	});
+	``;
+
+	// ✅ 1. Query without bangs (defaults to Google)
+	it('should return a default Google search URL if no bangs are provided', () => {
+		expect(getRedirectUrls('hello world')).toEqual([
+			'https://www.google.com/search?q=hello%20world'
+		]);
+	});
+
+	// ✅ 2. Query with a single valid bang
+	it('should return a DuckDuckGo search URL when using !ddg', () => {
+		expect(getRedirectUrls('!ddg test')).toEqual(['http://duckduckgo.com/?q=test']);
+	});
+
+	// ✅ 3. Query with multiple valid bangs
+	it('should return multiple search URLs when multiple bangs are used', () => {
+		expect(getRedirectUrls('!g !yt music videos')).toEqual([
+			'https://www.google.com/search?q=music%20videos',
+			'https://www.youtube.com/results?search_query=music%20videos'
+		]);
+	});
+
+	// ✅ 4. Query with an unknown bang (falls back to default engine)
+	it('should ignore unknown bangs and use the default engine', () => {
+		expect(getRedirectUrls('!unknown term')).toEqual(['https://www.google.com/search?q=term']);
+	});
+
+	// ✅ 5. Query with a mix of valid and invalid bangs
+	it('should ignore unknown bangs but include known ones', () => {
+		expect(getRedirectUrls('!g !invalid !yt cool song')).toEqual([
+			'https://www.google.com/search?q=cool%20song',
+			'https://www.youtube.com/results?search_query=cool%20song'
+		]);
+	});
+
+	// ✅ 6. Query with only bangs (no search term)
+	it('should return URLs with an empty search term when only bangs are used', () => {
+		expect(getRedirectUrls('!gh !yt')).toEqual([
+			'https://github.com/search?utf8=%E2%9C%93&q=',
+			'https://www.youtube.com/results?search_query='
+		]);
+	});
+
+	// ✅ 7. Query with extra spaces
+	it('should handle multiple spaces and trim properly', () => {
+		expect(getRedirectUrls('  !g    spaced    query  ')).toEqual([
+			'https://www.google.com/search?q=spaced%20query'
+		]);
+	});
+
+	// ✅ 8. Query with special characters
+	it('should correctly encode special characters in queries', () => {
+		expect(getRedirectUrls('!gh C++ programming')).toEqual([
+			'https://github.com/search?utf8=%E2%9C%93&q=C%2B%2B%20programming'
+		]);
+	});
+
+	// ✅ 9. Query with repeated bangs (should not duplicate URLs)
+	it('should not duplicate URLs when the same bang is used multiple times', () => {
+		expect(getRedirectUrls('!ddg !ddg repeated search')).toEqual([
+			'http://duckduckgo.com/?q=repeated%20search'
+		]);
+	});
+
+	// ✅ 10. Query with no search term (empty string)
+	it('should return a default search URL with an empty query if no input is provided', () => {
+		expect(getRedirectUrls('')).toEqual(['https://www.google.com/search?q=']);
 	});
 });
