@@ -63,21 +63,32 @@ describe('getBangsAndQuery', () => {
 	});
 });
 
-// Mock localStorage
+// Mock localStorage with Vitest
+const mockLocalStorage: Record<string, string> = {};
+
 vi.stubGlobal('localStorage', {
-	getItem: vi.fn(),
-	setItem: vi.fn()
+	getItem: vi.fn((key: string) => mockLocalStorage[key] || null),
+	setItem: vi.fn((key: string, value: string) => {
+		mockLocalStorage[key] = value;
+	}),
+	removeItem: vi.fn((key: string) => {
+		delete mockLocalStorage[key];
+	}),
+	clear: vi.fn(() => {
+		Object.keys(mockLocalStorage).forEach((key) => delete mockLocalStorage[key]);
+	})
 });
 
 describe('getRedirectUrls', () => {
 	beforeEach(() => {
-		localStorage.getItem.mockReturnValue('https://www.google.com/search?q={{{s}}}');
+		// Reset localStorage before each test
+		mockLocalStorage['default_engine'] = 'g';
+		mockLocalStorage['fafs_cache'] = JSON.stringify({});
 	});
 
 	afterEach(() => {
 		vi.clearAllMocks();
 	});
-	``;
 
 	// ✅ 1. Query without bangs (defaults to Google)
 	it('should return a default Google search URL if no bangs are provided', () => {
