@@ -3,7 +3,7 @@
 </script>
 
 <main>
-	<h1>
+	<h1 class="flex-container">
 		<img src="/app_icon.svg" alt="FAFS" />
 		<span>Fast And Flexible Search</span>
 	</h1>
@@ -25,6 +25,7 @@
 		</span>
 	</div>
 	<footer>
-		<a href="https://github.com/Tsuzat/fafs" target="_blank">Hello</a>
+		<a href="https://github.com/Tsuzat/fafs" target="_blank">Github</a> •
+		<a href="https://tsuzat.com" target="_blank">Tsuzat</a>
 	</footer>
 </main>
