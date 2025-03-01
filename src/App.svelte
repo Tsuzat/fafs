@@ -9,7 +9,9 @@
 	</h1>
 	<span class="text-s">Search anything, anytime — your way</span>
 	<span class="text-center">
-		FAFS brings <a href="https://duckduckgo.com/bang.html">DuckDuckGo-style search bangs</a>
+		FAFS brings <a href="https://duckduckgo.com/bang.html" target="_blank"
+			>DuckDuckGo-style search bangs</a
+		>
 		to your browser, letting you search instantly with your
 		<strong>preferred search engine</strong>. Customize your own bangs, set favorites for even
 		faster access, and take control of your searches.
@@ -26,6 +28,7 @@
 	</div>
 	<footer>
 		<a href="https://github.com/Tsuzat/fafs" target="_blank">Github</a> •
-		<a href="https://tsuzat.com" target="_blank">Tsuzat</a>
+		<a href="https://tsuzat.com" target="_blank">Tsuzat</a> •
+		<span>Version 0.0.0</span>
 	</footer>
 </main>
