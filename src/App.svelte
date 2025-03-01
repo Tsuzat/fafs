@@ -1,11 +1,10 @@
 <script lang="ts">
 	import CopyIcon from './lib/CopyButton.svelte';
-	import src from './assets/app_icon.svg';
 </script>
 
 <main>
 	<h1>
-		<img {src} alt="FAFS" />
+		<img src="/app_icon.svg" alt="FAFS" />
 		<span>Fast And Flexible Search</span>
 	</h1>
 	<span class="text-s">Search anything, anytime — your way</span>
@@ -25,4 +24,7 @@
 			<CopyIcon onClick={() => navigator.clipboard.writeText('https://fafs.tsuzat.com?q=%s')} />
 		</span>
 	</div>
+	<footer>
+		<a href="https://github.com/Tsuzat/fafs" target="_blank">Hello</a>
+	</footer>
 </main>
