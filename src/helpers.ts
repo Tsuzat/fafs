@@ -13,7 +13,7 @@ export function getBangsAndQuery(q: string): {
 	const parts = q.split(' ');
 	// remove extra spaces among the parts
 	// Get all the bangs in the query and remove the ! from them
-	const bangsInQuery: string[] = [];
+	const bangsInQuery = new Set<string>();
 	// Get the pure query
 	const pureQuery: string[] = [];
 	// Loop through the parts and add them to the appropriate array
@@ -21,12 +21,12 @@ export function getBangsAndQuery(q: string): {
 		part = part.trim();
 		if (part === '') continue;
 		if (part.startsWith('!')) {
-			bangsInQuery.push(part.replace('!', ''));
+			bangsInQuery.add(part.replace('!', ''));
 		} else {
 			pureQuery.push(part);
 		}
 	}
-	return { bangsInQuery, query: pureQuery.join(' ') };
+	return { bangsInQuery: Array.from(bangsInQuery), query: pureQuery.join(' ') };
 }
 
 /**
@@ -47,11 +47,11 @@ export function createUrl(url: string, query: string): string {
 export function getRedirectUrls(q: string): string[] {
 	const { bangsInQuery, query } = getBangsAndQuery(q);
 	const redirectUrls: string[] = [];
+	const defaultEngine =
+		localStorage.getItem('default_engine') || 'https://www.google.com/search?q={{{s}}}';
+	const defaultSearchUrl = createUrl(defaultEngine, query);
 	if (bangsInQuery.length === 0) {
-		const defaultEngine =
-			localStorage.getItem('default_engine') || 'https://www.google.com/search?q={{{s}}}';
-		const searchUrl = createUrl(defaultEngine, query);
-		redirectUrls.push(searchUrl);
+		redirectUrls.push(defaultSearchUrl);
 	} else {
 		for (const queryBang of bangsInQuery) {
 			// search the corresponding bang in map
@@ -61,6 +61,7 @@ export function getRedirectUrls(q: string): string[] {
 			redirectUrls.push(searchUrl);
 		}
 	}
+	if (redirectUrls.length === 0) redirectUrls.push(defaultSearchUrl);
 	return redirectUrls;
 }
 
