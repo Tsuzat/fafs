@@ -67,9 +67,13 @@ export function getRedirectUrls(q: string): string[] {
 export function handleRedirects(q: string) {
 	const urls = getRedirectUrls(q);
 	// open the first url in same tab
-	window.location.replace(urls[0]);
-	// open the rest of the urls in new tabs
-	urls.slice(1).forEach((url) => {
-		window.open(url, '_blank');
-	});
+	if (urls.length === 1) window.location.replace(urls[0]);
+	else {
+		const firstUrl = urls.shift();
+		// open the rest of the urls in new tabs
+		urls.forEach((url) => {
+			window.open(url, '_blank');
+		});
+		window.location.replace(firstUrl!);
+	}
 }
