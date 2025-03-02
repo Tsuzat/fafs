@@ -5,3 +5,4 @@
 <InputEncoding>UTF-8</InputEncoding>
 <LongName>Fast and Flexible Search</LongName>
 <Url type="text/html" method="get" template="https://fafs.tsuzat.com?q={searchTerms}"/>
+</OpenSearchDescription>
