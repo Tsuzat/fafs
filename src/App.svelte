@@ -13,7 +13,7 @@
 <main>
 	<div class="main-content">
 		<h1 class="flex-container">
-			<img src="/app_icon.svg" alt="FAFS" />
+			<img class="animate-bounce" src="/app_icon.svg" alt="FAFS" />
 			<span>Fast And Flexible Search</span>
 		</h1>
 		<span class="text-s">Search anything, anytime — your way</span>
@@ -35,7 +35,7 @@
 				<CopyIcon onClick={() => navigator.clipboard.writeText('https://fafs.tsuzat.com?q=%s')} />
 			</span>
 		</div>
-		<button class="show-search" onclick={showSearch}>Show Search</button>
+		<button class="show-search" onclick={showSearch}>Explore Bangs and More</button>
 	</div>
 	<SearchBangs />
 	<footer>
@@ -44,7 +44,3 @@
 		<span>Version 0.0.0</span>
 	</footer>
 </main>
-
-<style>
-
-</style>
