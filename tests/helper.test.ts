@@ -92,9 +92,7 @@ describe('getRedirectUrls', () => {
 
 	// ✅ 1. Query without bangs (defaults to Google)
 	it('should return a default Google search URL if no bangs are provided', () => {
-		expect(getRedirectUrls('hello world')).toEqual([
-			'https://www.google.com/search?q=hello%20world'
-		]);
+		expect(getRedirectUrls('hello world')).toEqual(['https://google.com/search?q=hello%20world']);
 	});
 
 	// ✅ 2. Query with a single valid bang
@@ -105,20 +103,20 @@ describe('getRedirectUrls', () => {
 	// ✅ 3. Query with multiple valid bangs
 	it('should return multiple search URLs when multiple bangs are used', () => {
 		expect(getRedirectUrls('!g !yt music videos')).toEqual([
-			'https://www.google.com/search?q=music%20videos',
+			'https://google.com/search?q=music%20videos',
 			'https://www.youtube.com/results?search_query=music%20videos'
 		]);
 	});
 
 	// ✅ 4. Query with an unknown bang (falls back to default engine)
 	it('should ignore unknown bangs and use the default engine', () => {
-		expect(getRedirectUrls('!unknown term')).toEqual(['https://www.google.com/search?q=term']);
+		expect(getRedirectUrls('!unknown term')).toEqual(['https://google.com/search?q=term']);
 	});
 
 	// ✅ 5. Query with a mix of valid and invalid bangs
 	it('should ignore unknown bangs but include known ones', () => {
 		expect(getRedirectUrls('!g !invalid !yt cool song')).toEqual([
-			'https://www.google.com/search?q=cool%20song',
+			'https://google.com/search?q=cool%20song',
 			'https://www.youtube.com/results?search_query=cool%20song'
 		]);
 	});
@@ -134,7 +132,7 @@ describe('getRedirectUrls', () => {
 	// ✅ 7. Query with extra spaces
 	it('should handle multiple spaces and trim properly', () => {
 		expect(getRedirectUrls('  !g    spaced    query  ')).toEqual([
-			'https://www.google.com/search?q=spaced%20query'
+			'https://google.com/search?q=spaced%20query'
 		]);
 	});
 
@@ -154,6 +152,6 @@ describe('getRedirectUrls', () => {
 
 	// ✅ 10. Query with no search term (empty string)
 	it('should return a default search URL with an empty query if no input is provided', () => {
-		expect(getRedirectUrls('')).toEqual(['https://www.google.com/search?q=']);
+		expect(getRedirectUrls('')).toEqual(['https://google.com/search?q=']);
 	});
 });
