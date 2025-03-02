@@ -26,8 +26,8 @@
 		</span>
 		<div class="flex-container">
 			<strong>
-				Add it to your browser's search engine settings, enable popups by this website, and make it
-				your default. 🚀
+				👉 Add it to your browser's search engine settings, enable popups for this website, and make
+				it your default. 🚀
 			</strong>
 			<span class="input-container">
 				<input type="text" readonly value="https://fafs.tsuzat.com?q=%s" />
@@ -40,6 +40,6 @@
 	<footer>
 		<a href="https://github.com/Tsuzat/fafs" target="_blank">Github</a> •
 		<a href="https://tsuzat.com" target="_blank">Tsuzat</a> •
-		<span>Version 1.0.2</span>
+		<span>Version 1.0.3</span>
 	</footer>
 </main>
