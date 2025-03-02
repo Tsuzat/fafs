@@ -14,6 +14,19 @@
 	--color-success: #00c950; /* Success green for the copy check mark */
 }
 
+::-webkit-scrollbar {
+	width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--color-border);
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
 /* Dark mode variables */
 @media (prefers-color-scheme: dark) {
 	:root {
@@ -43,9 +56,8 @@ main {
 	padding: 1rem;
 	margin: auto;
 	display: flex;
-	height: 100vh;
-	width: 100%;
-	max-width: 48rem; /* max-w-3xl equivalent */
+	width: 100vw;
+	max-width: 60rem; /* max-w-3xl equivalent */
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
@@ -166,4 +178,42 @@ footer {
 	font-size: 0.9rem;
 	position: fixed;
 	bottom: 0;
+}
+
+.main-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	padding: 1rem;
+	min-height: 100vh;
+}
+
+.search-bangs {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	padding: 2rem 1rem;
+	width: 100%;
+	height: 100vh;
+}
+
+.your-default-bang {
+	opacity: 50%;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.default-bang {
+	font-weight: bold;
+	font-size: 0.9rem;
+	border: 1px solid var(--color-border);
+	padding: 0.25rem 0.5rem;
+	cursor: pointer;
+	border-radius: 0.25rem;
+	align-content: center;
 }
