@@ -62,18 +62,56 @@
 <div class="search-bangs" id="search-bangs">
 	<h1>Search and Explore Available Bangs</h1>
 	<span class="your-default-bang" title="Your default bang">
-		<span> Your Default Bang</span>
+		<span>Your Default Bang is</span>
 		<span class="default-bang" title={defaultBangInfo.u}>!{defaultBang}</span>
 	</span>
 
-	<div class="input-container">
+	<div class="search-container">
 		<input
 			type="text"
 			class="input-container"
 			bind:value
-			placeholder="Search bangs with space e.g. google !g !yt"
+			placeholder="Search bang(s) with spaces e.g. google !g !yt"
 			onchange={searchBangs}
 		/>
+		<button
+			class="copy-button"
+			title="Clear"
+			aria-label="Clear Search"
+			onclick={() => {
+				value = undefined;
+				searchResult = [];
+			}}
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="1"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				class="lucide lucide-x"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg
+			>
+		</button>
+
+		<button class="copy-button" title="Search" aria-label="Search the bangs" onclick={searchBangs}>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="1"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				class="lucide lucide-search"
+				><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg
+			>
+		</button>
 	</div>
 	{#if searchResult.length === 0}
 		<h3 transition:fly={{ delay: 0, duration: 200 }}>No results found...</h3>
@@ -91,42 +129,3 @@
 		</div>
 	{/if}
 </div>
-
-<style>
-	.input-container {
-		width: 100%;
-		display: flex;
-		align-items: center;
-	}
-
-	.search-result {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-		gap: 1rem;
-		padding: 1rem;
-		max-width: 100%;
-		max-height: 100%;
-		overflow: auto;
-		border: 0.5px dashed var(--color-border);
-		border-radius: 0.5rem;
-		padding: 1rem;
-	}
-
-	.search-result-bangs {
-		font-size: 0.9rem;
-		background-color: transparent;
-		color: currentColor;
-		border: 1px solid var(--color-border);
-		padding: 0.25rem 0.5rem;
-		cursor: pointer;
-		border-radius: 0.25rem;
-		align-content: center;
-		margin-right: 0.125rem;
-		margin-bottom: 0.125rem;
-		transition: background-color 0.3s;
-	}
-
-	.search-result-bangs:hover {
-		background-color: var(--color-border);
-	}
-</style>
