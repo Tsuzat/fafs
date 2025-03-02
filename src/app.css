@@ -83,7 +83,7 @@ h1 img {
 }
 
 .text-s {
-	font-size: 0.875rem;
+	font-size: 0.9rem;
 	font-weight: 500; /* font-medium equivalent */
 	opacity: 0.8;
 }
@@ -216,4 +216,20 @@ footer {
 	cursor: pointer;
 	border-radius: 0.25rem;
 	align-content: center;
+}
+
+.animate-bounce {
+	animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+	0%,
+	100% {
+		transform: translateY(-25%);
+		animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+	}
+	50% {
+		transform: translateY(0);
+		animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+	}
 }
