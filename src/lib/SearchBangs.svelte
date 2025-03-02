@@ -14,7 +14,7 @@
 
 	let value = $state<string>();
 
-	let defaultBang = $state(localStorage.getItem('default_search') ?? 'g');
+	let defaultBang = $state(localStorage.getItem('default_bang') ?? 'g');
 
 	let defaultBangInfo = $derived(bangs[defaultBang]);
 
@@ -53,7 +53,7 @@
 			`Bang !${bang} with url ${searchUrl} will be set as your default search bang. Are you sure?`
 		);
 		if (isConfirmed) {
-			localStorage.setItem('default_search', bang);
+			localStorage.setItem('default_bang', bang);
 			defaultBang = bang;
 		}
 	}

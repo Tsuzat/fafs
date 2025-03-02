@@ -48,7 +48,7 @@ export function createUrl(url: string, query: string): string {
 export function getRedirectUrls(q: string): string[] {
 	let { bangsInQuery, query } = getBangsAndQuery(q);
 	const redirectUrls: string[] = [];
-	const defaultEngine = localStorage.getItem('default_engine') || 'g';
+	const defaultEngine = localStorage.getItem('default_bang') || 'g';
 
 	if (bangsInQuery.length === 0) bangsInQuery.push(defaultEngine);
 
