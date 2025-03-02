@@ -22,8 +22,7 @@
 				>DuckDuckGo-style search bangs</a
 			>
 			to your browser, letting you search instantly with your
-			<strong>preferred search engine</strong>. Customize your own bangs, set favorites for even
-			faster access, and take control of your searches.
+			<strong>preferred search engine</strong>. Search more with less.
 		</span>
 		<div class="flex-container">
 			<strong>

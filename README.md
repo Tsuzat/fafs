@@ -1,13 +1,13 @@
 # FAFS — Fast And Flexible Search
 
-FAFS brings [DuckDuckGo-style search bangs](https://duckduckgo.com/bang.html) to your browser, letting you search instantly with your **preferred search engine**. Customize your own bangs, set favorites for even faster access, and take control of your searches.
+FAFS brings [DuckDuckGo-style search bangs](https://duckduckgo.com/bang.html) to your browser, letting you search instantly with your **preferred search engine**. Search more with less.
 
 ## Features
 
 - 🔍 Instant search with your preferred search engine
-- 🔥 Customize your own bangs
-- 💡 Set favorites for even faster access
+- 🔥 Customize your default search engine
 - 🔧 Take control of your searches
+- 📝 Search bangs for your favorite websites
 
 ## Getting Started
 
