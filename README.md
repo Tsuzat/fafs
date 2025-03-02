@@ -1,4 +1,4 @@
-# FAFS — Fast And Flexible Search (WIP)
+# FAFS — Fast And Flexible Search
 
 FAFS brings [DuckDuckGo-style search bangs](https://duckduckgo.com/bang.html) to your browser, letting you search instantly with your **preferred search engine**. Customize your own bangs, set favorites for even faster access, and take control of your searches.
 
@@ -20,3 +20,9 @@ Contributions are welcome! If you'd like to contribute, please open an issue or 
 ## License
 
 This project is licensed under the MIT License.
+
+## Acknowledgments
+
+- [DuckDuckGo](https://duckduckgo.com)
+- [DuckDuckGo-style search bangs](https://duckduckgo.com/bang.html)
+- [Und\*ck](https://github.com/t3dotgg/unduck)
