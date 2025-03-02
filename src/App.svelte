@@ -41,6 +41,6 @@
 	<footer>
 		<a href="https://github.com/Tsuzat/fafs" target="_blank">Github</a> •
 		<a href="https://tsuzat.com" target="_blank">Tsuzat</a> •
-		<span>Version 1.0.0</span>
+		<span>Version 1.0.1</span>
 	</footer>
 </main>
