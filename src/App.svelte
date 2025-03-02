@@ -26,10 +26,10 @@
 			faster access, and take control of your searches.
 		</span>
 		<div class="flex-container">
-			<span>
-				Copy the link below, add it to your browser's search engine settings, and make it your
-				default. 🚀
-			</span>
+			<strong>
+				Add it to your browser's search engine settings, enable popups by this website, and make it
+				your default. 🚀
+			</strong>
 			<span class="input-container">
 				<input type="text" readonly value="https://fafs.tsuzat.com?q=%s" />
 				<CopyIcon onClick={() => navigator.clipboard.writeText('https://fafs.tsuzat.com?q=%s')} />
