@@ -41254,7 +41254,7 @@ export const bangs: {
 		s: 'Google',
 		sc: 'Google',
 		t: 'g',
-		u: 'https://www.google.com/search?q={{{s}}}'
+		u: 'https://google.com/search?q={{{s}}}'
 	},
 	'g+': {
 		c: 'Online Services',
