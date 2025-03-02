@@ -11,6 +11,15 @@ export const bangs: {
 		u: string;
 	};
 } = {
+	grok: {
+		c: 'AI',
+		d: 'https://grok.com/',
+		r: 0,
+		s: 'grok',
+		sc: 'AI',
+		t: 'grok',
+		u: 'https://grok.com?q={{{s}}}'
+	},
 	'4': {
 		c: 'Multimedia',
 		d: 'www.4fitnessrules.com',
