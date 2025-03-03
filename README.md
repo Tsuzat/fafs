@@ -2,6 +2,8 @@
 
 FAFS brings [DuckDuckGo-style search bangs](https://duckduckgo.com/bang.html) to your browser, letting you search instantly with your **preferred search engine**. Search more with less.
 
+https://github.com/user-attachments/assets/251ae91e-a03f-480d-a842-4bc4b05901a8
+
 ## Features
 
 - 🔍 Instant search with your preferred search engine
